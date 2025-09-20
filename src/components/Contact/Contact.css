@@ -1,0 +1,94 @@
+#contact{
+    width: 100%;
+    height: 100%;
+    display: flex;
+     overflow: hidden;
+}
+
+.left-contact{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-contact img{
+    width: 40%;
+    transform: translateY(-100px);
+    filter: drop-shadow(2px 2px 10px aqua);
+}
+.right-contact{
+    width: 50%;
+    height: 100vh;
+    
+}
+
+
+form{
+    height: 70%;
+    width: 80%;
+    background-color: rgb(18, 17, 17);
+    box-shadow: 2px 2px 10px black, 2px 2px 10px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 14px;
+}
+
+form:hover{
+    box-shadow: 2px 2px 10px rgb(82, 204, 217), 2px 2px 10px rgb(40, 175, 202);
+}
+
+form input{
+    width: 80%;
+    height: 50px;
+    border: 2px solid rgb(217, 226, 226);
+    border-radius: 14px;
+    padding: 20px;
+    outline: none;
+}
+
+form textarea{
+    width: 80%;
+    height: 30%;
+    border-radius: 12px;
+    padding: 14px;
+   
+    outline: none;
+}
+
+form button{
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 12px;
+    width: 120px;
+    height: 50px;
+    margin-top: 20px;
+    padding: 0;
+    
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+#formbtn:hover{
+    background:transparent;
+    color: aqua;
+}
+
+@media (max-width:750px) {
+    #contact{
+        flex-direction: column;
+    }
+    .left-contact{
+        width: 100%;
+    }
+    .right-contact{
+        width: 100%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+    }
+}
