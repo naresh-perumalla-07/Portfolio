@@ -8,8 +8,6 @@ import Nav from './components/Navbar/Nav'
 import Projects from './components/Projects/Projects'
 
 function App() {
-
-
   return (
     <>
     <Nav/>
