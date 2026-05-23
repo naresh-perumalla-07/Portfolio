@@ -17,7 +17,7 @@ export const skillGroups = [
     items: ['NLP', 'Deep Learning', 'RAG', 'LangChain', 'LangGraph'],
   },
   {
-    label: 'Data',
+    label: 'DataBase',
     items: ['MongoDB', 'SQL', 'Vector DB'],
   },
 ]
