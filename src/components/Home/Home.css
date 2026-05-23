@@ -1,0 +1,240 @@
+#home {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Ambient glow orb ── */
+.hero-glow {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(200, 169, 110, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: glowDrift 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes glowDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 30px) scale(1.1); }
+  100% { transform: translate(20px, -20px) scale(0.95); }
+}
+
+.hero-inner {
+  max-width: 900px;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 100px;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero-label-line {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── Name treatment ── */
+.hero-name {
+  display: flex;
+  gap: 0.28em;
+  font-size: clamp(3.2rem, 7vw, 5.8rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  margin-bottom: 24px;
+}
+
+.hero-first {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hero-last {
+  font-weight: 300;
+  color: var(--text-secondary);
+  letter-spacing: -0.02em;
+}
+
+.hero-sub {
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 440px;
+}
+
+/* ── CTAs ── */
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease;
+}
+
+.cta-primary:hover {
+  color: var(--text-primary);
+}
+
+.cta-primary svg {
+  transition: transform 0.3s ease;
+}
+
+.cta-primary:hover svg {
+  transform: translateY(3px);
+}
+
+.cta-ghost {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.cta-ghost:hover {
+  color: var(--text-primary);
+}
+
+/* ── Scroll indicator ── */
+.hero-scroll {
+  position: absolute;
+  right: 60px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 1;
+}
+
+.scroll-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--border-light), transparent);
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ── Infinite marquee ── */
+.marquee-section {
+  width: 100vw;
+  margin-left: -60px;
+  border-top: 1px solid var(--border);
+  padding: 18px 0;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  animation: marqueeScroll 25s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.marquee-dot {
+  color: var(--accent);
+  font-size: 1rem;
+  opacity: 0.5;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  #home {
+    padding: 0 24px 0;
+  }
+  .hero-inner {
+    padding-bottom: 80px;
+  }
+  .hero-name {
+    flex-direction: column;
+    gap: 0;
+  }
+  .hero-scroll {
+    right: 24px;
+    bottom: 60px;
+  }
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .hero-glow {
+    width: 300px;
+    height: 300px;
+    right: -5%;
+    top: 20%;
+  }
+  .marquee-section {
+    margin-left: -24px;
+  }
+}

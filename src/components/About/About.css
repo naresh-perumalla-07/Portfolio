@@ -1,0 +1,137 @@
+#about {
+  padding: 80px 60px;
+  border-top: 1px solid var(--border);
+}
+
+.about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Section label ── */
+#about .section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 20px;
+}
+
+#about .section-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 10px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ── Left col ── */
+.about-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-heading {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  letter-spacing: -0.025em;
+}
+
+.about-bio {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 460px;
+  transition-delay: 80ms;
+}
+
+/* ── Right col — skill groups ── */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px;
+}
+
+.skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-group-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-chip {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 3px;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  cursor: default;
+}
+
+.skill-chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  #about {
+    padding: 60px 24px;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-bio {
+    max-width: 100%;
+  }
+}
